@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./base.component.css']
 })
 export class BaseComponent {
+  activeComponent: 'login' | 'register' = 'login'; // Initially set to 'login'
 
+  setActiveComponent(component: 'login' | 'register') {
+    this.activeComponent = component;
+  }
 }

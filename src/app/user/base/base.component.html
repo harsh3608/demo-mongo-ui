@@ -1,5 +1,19 @@
 <div class="parent">
     
+    <div class="buttons">
+        <button (click)="setActiveComponent('login')"
+            [ngClass]="{ 'active': activeComponent === 'login' }">Login</button>
+        <button (click)="setActiveComponent('register')"
+            [ngClass]="{ 'active': activeComponent === 'register' }">Register</button>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <ng-container [ngSwitch]="activeComponent">
+                <app-login *ngSwitchCase="'login'"></app-login>
+                <app-registration *ngSwitchCase="'register'"></app-registration>
+            </ng-container>
+        </div>
+    </div>
+    
 </div>
-
-

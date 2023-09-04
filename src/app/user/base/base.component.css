@@ -6,4 +6,36 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+    padding-top: 50px;
+}
+
+
+.box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 500px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+}
+  
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+}
+  
+button.active {
+    background-color: #007bff; /* Change the color to your preferred active state */
+    color: #fff; /* Change the text color for the active button */
 }
