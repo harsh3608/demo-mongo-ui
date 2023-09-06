@@ -5,21 +5,60 @@
     <hr>
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
-            <div class="row my-3">
-                <div class="col">
-                    <label for="Email" class="form-label">Email</label>
-                    <div >
-                        
-                        <input type="text" pInputText id="Email" formControlName="Email">
+            <div class="d-flex flex-column align-items-center">
+                <div class="row my-3">
+                    <div class="col">
+                        <label for="email" class="form-label">Email</label>
+                        <div>
+                            <input pInputText style="width: 400px;" type="text" id="email" formControlName="email"
+                                [class]="(Email.errors?.['required'] || Email.errors?.['email']) && (Email.touched || Email.dirty) ? 'ng-invalid ng-dirty':'' ">
+                        </div>
+                        <div style="font-size: medium; font-weight: 500;" class="form-text text-danger"
+                            *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">
+                            Email is Required !
+                        </div>
+                        <div style="font-size: medium; font-weight: 500;" class="form-text text-danger"
+                            *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)">
+                            Enter valid email address.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row my-3">
-                <div class="col"></div>
-            </div>
-            <div class="row my-3">
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary">Submit</button>
+                <div class="row my-3">
+                    <div class="col">
+                        <label for="password" class="form-label">Password</label>
+                        <div>
+                            <input style="width: 400px;" [type]="showPassword ? 'text' : 'password'" pInputText
+                                id="password" formControlName="password"
+                                [class]="(Password.errors?.['required'] || Password.errors?.['email']) && (Password.touched || Password.dirty) ? 'ng-invalid ng-dirty':'' ">
+                            <span class="icon-container">
+
+                                <span class="material-icons " aria-hidden="true" [hidden]="!showPassword"
+                                    (click)="togglePasswordVisibility()">
+                                    visibility
+                                </span>
+
+                                <span class="material-icons" aria-hidden="true" [hidden]="showPassword"
+                                    (click)="togglePasswordVisibility()">
+                                    visibility_off
+                                </span>
+
+                            </span>
+                        </div>
+                        <div style="font-size: medium; font-weight: 500;" class="form-text text-danger"
+                            *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+                            Password is Required !
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" [disabled]="loginForm.invalid"
+                            style="background-color: blueviolet; border-color: blueviolet;"
+                            class="btn rounded-pill btn-primary">
+                            <span class="p-3">Login</span>
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </form>

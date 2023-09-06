@@ -9,6 +9,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup; 
+  showPassword: boolean = true;
+  
 
   constructor(
     //private usersService: UsersService,
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: new FormControl('',[Validators.required , Validators.email]),
-      password: new FormControl('',[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,15}')])
+      password: new FormControl('',[Validators.required ])
     })
   }
 
@@ -28,5 +30,15 @@ export class LoginComponent implements OnInit {
     
   }
 
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
 
+  //Getter functions to get for-values from form-controls
+  get Email(): FormControl {
+    return this.loginForm.get("email") as FormControl;
+  }
+  get Password(): FormControl {
+    return this.loginForm.get("password") as FormControl;
+  }
 }
