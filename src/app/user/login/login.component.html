@@ -27,22 +27,8 @@
                     <div class="col">
                         <label for="password" class="form-label">Password</label>
                         <div>
-                            <input style="width: 400px;" [type]="showPassword ? 'text' : 'password'" pInputText
-                                id="password" formControlName="password"
-                                [class]="(Password.errors?.['required'] || Password.errors?.['email']) && (Password.touched || Password.dirty) ? 'ng-invalid ng-dirty':'' ">
-                            <span class="icon-container">
-
-                                <span class="material-icons " aria-hidden="true" [hidden]="!showPassword"
-                                    (click)="togglePasswordVisibility()">
-                                    visibility
-                                </span>
-
-                                <span class="material-icons" aria-hidden="true" [hidden]="showPassword"
-                                    (click)="togglePasswordVisibility()">
-                                    visibility_off
-                                </span>
-
-                            </span>
+                            <p-password [toggleMask]="true" formControlName="password" 
+                                [class]="(Password.errors?.['required'] || Password.errors?.['email']) && (Password.touched || Password.dirty) ? 'ng-invalid ng-dirty':'' "></p-password>
                         </div>
                         <div style="font-size: medium; font-weight: 500;" class="form-text text-danger"
                             *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">

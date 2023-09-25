@@ -6,6 +6,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { BaseComponent } from './base/base.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+
+
 
 
 @NgModule({
@@ -19,7 +22,8 @@ import { InputTextModule } from 'primeng/inputtext';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    InputTextModule
+    InputTextModule,
+    PasswordModule
   ]
 })
 export class UserModule { }

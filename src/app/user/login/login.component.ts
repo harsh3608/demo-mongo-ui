@@ -9,7 +9,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup; 
-  showPassword: boolean = true;
   
 
   constructor(
@@ -30,9 +29,6 @@ export class LoginComponent implements OnInit {
     
   }
 
-  public togglePasswordVisibility(): void {
-    this.showPassword = !this.showPassword;
-  }
 
   //Getter functions to get for-values from form-controls
   get Email(): FormControl {
