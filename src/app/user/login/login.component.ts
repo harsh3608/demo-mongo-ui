@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup; 
+  isLoading:boolean = false;
   
 
   constructor(
@@ -26,6 +27,14 @@ export class LoginComponent implements OnInit {
 
 
   OnSubmit() {
+    this.loginForm.markAllAsTouched();
+    this.isLoading = true;
+    setTimeout(() => {
+      if(this.loginForm.valid) {
+        console.log(this.loginForm.value);
+        this.isLoading = false;
+      }
+    }, 2000);
     
   }
 
