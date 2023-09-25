@@ -23,8 +23,11 @@ export class RegistrationComponent {
       gender: new FormControl('', [Validators.required]),
       dob: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required, Validators.pattern("[0-9]*.{10,10}")]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6),
+      Validators.maxLength(15),
+      Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,15}')
+      ]),
       createdDate: new FormControl(''),
       userType: new FormControl('user')
     })

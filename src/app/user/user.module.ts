@@ -7,7 +7,8 @@ import { BaseComponent } from './base/base.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CalendarModule } from 'primeng/calendar';
 
 
 
@@ -23,7 +24,12 @@ import { PasswordModule } from 'primeng/password';
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    RadioButtonModule,
+    CalendarModule,
+
+
+
   ]
 })
 export class UserModule { }
